@@ -1,0 +1,26 @@
+
+
+
+*{
+    box-sizing: border-box!important;
+    margin: 0!important;
+    padding: 0!important;
+}
+
+
+#aleert{
+    width: 35%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+
+
+img{
+    object-fit: cover;
+}
+
+.cursor{
+    cursor: pointer;
+}
