@@ -9,6 +9,7 @@ var aleert = document.querySelector('.aleert');
 var img = document.querySelector('#aleert img');
 var layer = document.querySelector('#layer');
 
+
 function getImg(e){
     if(e.target === btnClose){
         return;
@@ -30,7 +31,7 @@ function nextEle(e){
     for (let i = 0; i < items.length; i++) {
         newSrc = e.target.closest('.row').querySelectorAll('.item')[i].firstElementChild;
         if(newSrc.getAttribute('src') === img.getAttribute('src') && newSrc.getAttribute('src') !== lastSrc){
-            nextsrc = newSrc.closest('.col-lg-4').nextElementSibling.querySelector('.w-100').getAttribute('src');
+            nextsrc = newSrc.closest('.col-6').nextElementSibling.querySelector('.w-100').getAttribute('src');
             img.setAttribute('src', nextsrc)
             return;
         }else if(newSrc.getAttribute('src') === img.getAttribute('src') && newSrc.getAttribute('src') === lastSrc){
@@ -48,7 +49,7 @@ function PreviousEle(e){
     for (let i = 0; i < items.length; i++) {
         newSrc = e.target.closest('.row').querySelectorAll('.item')[i].firstElementChild;
         if(newSrc.getAttribute('src') === img.getAttribute('src') && newSrc.getAttribute('src') !== firstSrc){
-            previousSrc = newSrc.closest('.col-lg-4').previousElementSibling.querySelector('.w-100').getAttribute('src');
+            previousSrc = newSrc.closest('.col-6').previousElementSibling.querySelector('.w-100').getAttribute('src');
             img.setAttribute('src', previousSrc)
             return;
         }else if(newSrc.getAttribute('src') === img.getAttribute('src') && newSrc.getAttribute('src') === firstSrc){
@@ -63,16 +64,17 @@ function closeAlert(){
     layer.classList.add('d-none');
 }
 
-// function displayLayer(e){
-//     // e.stopPropagation();
-//     if(e.target === window){
-//         return;
-//     }
-//     layer.classList.add('d-none');
-// }
+function displayLayer(e){
+    // e.stopPropagation();
+    // if(e.target === window){
+    //     return;
+    // }
+    layer.classList.add('d-none');
+    aleert.classList.add('d-none');
+}
 
 row.addEventListener('click', getImg);
 btnClose.addEventListener('click', closeAlert);
 btnNext.addEventListener('click', nextEle);
 btnPrevious.addEventListener('click', PreviousEle);
-// window.addEventListener('click', displayLayer);
+layer.addEventListener('click', displayLayer);
