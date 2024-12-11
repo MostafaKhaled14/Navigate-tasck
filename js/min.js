@@ -65,10 +65,6 @@ function closeAlert(){
 }
 
 function displayLayer(e){
-    // e.stopPropagation();
-    // if(e.target === window){
-    //     return;
-    // }
     layer.classList.add('d-none');
     aleert.classList.add('d-none');
 }
